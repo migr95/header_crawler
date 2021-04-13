@@ -32,4 +32,4 @@ Run with the following command to create graph for a specific root-file.
 To specify further inlcude directories, _-d_ can be used.
 
 	./bin/header_crawler -f FILE_PATH -d INCLUDE_DIR
-	./bin/header_crawler -f FILE_PATH -d [INCLUDE_DIR1:INCLUDE_DIR2\
+	./bin/header_crawler -f FILE_PATH -d [INCLUDE_DIR1:INCLUDE_DIR2]
