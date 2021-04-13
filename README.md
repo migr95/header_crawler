@@ -1,5 +1,7 @@
 # header_crawler
 
+https://github.com/migr95/header_crawler/actions/workflows/c-cpp.yml/badge.svg
+
 Littel tool to generate a graph of include hierarchies using dot.
 
 Creates a graph in PostScript which displays the include hirarchy as tree-diagram starting from a specified file. 
