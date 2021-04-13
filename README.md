@@ -27,9 +27,9 @@ To remove build, call
 
 Run with the following command to create graph for a specific root-file.
 
-	./bin/header\_crawler -f FILE_PATH
+	./bin/header_crawler -f FILE_PATH
 	
 To specify further inlcude directories, _-d_ can be used.
 
-	./bin/header\_crawler -f FILE_PATH -d INCLUDE\_DIR
-	./bin/header\_crawler -f FILE_PATH -d \[INCLUDE\_DIR1:INCLUDE\_DIR2\]
+	./bin/header_crawler -f FILE_PATH -d INCLUDE_DIR
+	./bin/header_crawler -f FILE_PATH -d [INCLUDE_DIR1:INCLUDE_DIR2\
