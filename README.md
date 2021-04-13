@@ -1,6 +1,6 @@
 # header_crawler
 
-https://github.com/migr95/header_crawler/actions/workflows/c-cpp.yml/badge.svg
+[![Actions Status](https://github.com/migr95/header_crawler/actions/workflows/c-cpp.yml/badge.svg)]
 
 Littel tool to generate a graph of include hierarchies using dot.
 
