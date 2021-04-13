@@ -7,7 +7,13 @@ E.g. for this repository starting at "src/header_crawler.cpp" it produces:
 
 ![header_crawler example result](imgs/headers.jpg)
 
-## compile
+## Requirements
+
+For generating the graphs, _dot_ from Graphviz is needed. Install from [here](https://graphviz.org/download/) or by using:
+
+	sudo apt install graphviz
+
+## Build
 
 Build with
 
@@ -16,9 +22,3 @@ Build with
 To remove build, call
 
 	make clean
-
-## Requirements
-
-For generating the graphs, _dot_ from Graphviz is needed. Install from [here](https://graphviz.org/download/) or by using:
-
-	sudo apt install graphviz
