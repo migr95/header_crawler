@@ -9,7 +9,7 @@ E.g. for this repository starting at "src/header_crawler.cpp" it produces:
 
 ## compile
 
-Buidl by simply call
+Build with
 
 	make
 	
@@ -19,6 +19,6 @@ To remove build, call
 
 ## Requirements
 
-For generating the graphs, _dot_ from Graphviz is needed. Download [here](https://graphviz.org/download/) or by using:
+For generating the graphs, _dot_ from Graphviz is needed. Install from [here](https://graphviz.org/download/) or by using:
 
 	sudo apt install graphviz
