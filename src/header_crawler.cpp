@@ -12,7 +12,6 @@ void readfile(std::string file, tree_node* node, std::vector<std::string> dirs, 
     std::cout << std::endl << "in readfile for " << file << std::endl;
     //std::string dir = file.substr(0, file.rfind("/")+1);
 
-    std::string usedir;
     std::string usefile;
     for (auto& dir : dirs)
     {
