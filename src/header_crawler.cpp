@@ -7,25 +7,40 @@
 
 #include "dot_writer.hpp"
 
-void readfile(std::string file, tree_node* node, std::vector<std::string> dirs)
+void readfile(std::string file, tree_node* node, std::vector<std::string> dirs, bool recursive)
 {
     std::cout << std::endl << "in readfile for " << file << std::endl;
     //std::string dir = file.substr(0, file.rfind("/")+1);
 
     std::string usedir;
+    std::string usefile;
     for (auto& dir : dirs)
     {
-        for (const auto & entry : std::experimental::filesystem::directory_iterator(dir))
+        if (recursive)
         {
-            std::cout << entry.path().filename().string() << std::endl;
-            if (entry.path().filename().string() == file)
+            for (const auto & entry : std::experimental::filesystem::recursive_directory_iterator(dir))
             {
-                usedir = dir;
+                std::cout << entry.path().filename().string() << std::endl;
+                if (entry.path().filename().string() == file)
+                {
+                    usefile = entry.path().string();
+                }
+            }
+        }
+        else
+        {
+            for (const auto & entry : std::experimental::filesystem::directory_iterator(dir))
+            {
+                std::cout << entry.path().filename().string() << std::endl;
+                if (entry.path().filename().string() == file)
+                {
+                    usefile = entry.path().string();
+                }
             }
         }
     }
 
-    std::ifstream infile(usedir + file);
+    std::ifstream infile(usefile);
     std::string line;
     while (std::getline(infile, line))
     {
@@ -37,7 +52,7 @@ void readfile(std::string file, tree_node* node, std::vector<std::string> dirs)
                 newfile = newfile.substr(newfile.rfind("/")+1, newfile.size()-(newfile.rfind("/")+1));
                 tree_node t_local;
                 t_local.key = newfile;
-                readfile(newfile, &t_local, dirs);
+                readfile(newfile, &t_local, dirs, recursive);
                 node->childs.push_back(t_local);
             }
             else if (line.find("<") != std::string::npos)
@@ -58,7 +73,8 @@ int main(int argc, char * argv[])
     int c;
     std::vector<std::string> directories;
     std::string mainfile;
-    while((c = getopt(argc, argv, "f:d:")) != -1) // note the colon (:) to indicate that 'd' has a parameter and is not a switch
+    bool recursive = false;
+    while((c = getopt(argc, argv, "f:d:r")) != -1) // note the colon (:) to indicate that 'd' has a parameter and is not a switch
     {
         switch(c)
         {
@@ -99,6 +115,12 @@ int main(int argc, char * argv[])
             }
             break;
         }
+        case 'r':
+        {
+            recursive = true;
+            std::cout << "searching recursive in given directories!" << std::endl;
+            break;
+        }
 
         default:
         {
@@ -109,7 +131,7 @@ int main(int argc, char * argv[])
 
     tree_node t_main;
     t_main.key = mainfile;
-    readfile(mainfile, &t_main, directories);
+    readfile(mainfile, &t_main, directories, recursive);
 
     std::string filename = "headers";
     FILE * dotFile;
