@@ -36,6 +36,6 @@ To specify further inlcude directories, _-d_ can be used.
 	./bin/header_crawler -f FILE_PATH -d INCLUDE_DIR
 	./bin/header_crawler -f FILE_PATH -d [INCLUDE_DIR1:INCLUDE_DIR2]
 
-To specify, that the include paths shall be searched recursively, _r_ is used.
+To specify, that the include paths shall be searched recursively, _-r_ is used.
 
 	./bin/header_crawler -f FILE_PATH -d INCLUDE_DIR -r
